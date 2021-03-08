@@ -18,16 +18,18 @@ nodes.forEach((node =>{
 function resizeText(node: TextNode){
   const _width = node.width
   const _height = node.height
+  const _textAutoResize = node.textAutoResize
   node.textAutoResize = "WIDTH_AND_HEIGHT"
   var _currentWidth = node.width
   var _currentHeight = node.height
 
-  if (_currentWidth > _width && _currentHeight > _height){
+  if (_currentWidth > _width || _currentHeight > _height){
     shrinkText(node, _width, _height)
   }
   else{
     growText(node, _width, _height)
   }
+  node.textAutoResize = _textAutoResize
 }
 
 function shrinkText(node: TextNode, desiredWidth: number, desiredHeight: number){
