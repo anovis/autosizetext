@@ -38,7 +38,7 @@ Please file any issues, bugs or feature requests as an issue on the [GitHub](htt
 
 ## Roadmap
 
- &#9744; Run as background process
+ &#9744; Run as background process \
  &#9744; Toggle to run on selections
 
 ## Want to Contribute
