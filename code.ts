@@ -16,51 +16,43 @@ nodes.forEach((node =>{
 }))
 
 function resizeText(node: TextNode){
-  const _width = node.width
   const _height = node.height
-  const _textAutoResize = node.textAutoResize
-  node.textAutoResize = "WIDTH_AND_HEIGHT"
-  var _currentWidth = node.width
+  node.textAutoResize = "HEIGHT"
   var _currentHeight = node.height
-
-  if (_currentWidth > _width || _currentHeight > _height){
-    shrinkText(node, _width, _height)
+  if (_currentHeight > _height){
+    shrinkText(node, _height)
   }
   else{
-    growText(node, _width, _height)
+    growText(node, _height)
   }
-  node.textAutoResize = _textAutoResize
+  node.textAutoResize = "NONE"
+  node.resize(node.width, _height)
 }
 
-function shrinkText(node: TextNode, desiredWidth: number, desiredHeight: number){
-  var currentWidth = node.width
+function shrinkText(node: TextNode,  desiredHeight: number){
   var currentHeight = node.height
 
-  while (currentWidth > desiredWidth || desiredHeight > currentHeight){
+  while (currentHeight > desiredHeight){
     if (typeof(node.fontSize) === "number"){
       node.fontSize -= 1
     }
-    else{
-      // non standard font sizes
-      break
-    }
-    currentWidth = node.width
+    currentHeight = node.height
+
   }
 }
 
-function growText(node: TextNode, desiredWidth: number, desiredHeight: number){
-  var currentWidth = node.width
+function growText(node: TextNode, desiredHeight: number){
   var currentHeight = node.height
 
-  while (currentWidth < desiredWidth && currentHeight < desiredHeight){
+  while (currentHeight < desiredHeight){
     if (typeof(node.fontSize) === "number"){
       node.fontSize += 1
     }
-    else{
-      // non standard font sizes
-      break
-    }
-    currentWidth = node.width
+    currentHeight = node.height
+  }
+  // fontsize is now one size bigger than limit
+  if (typeof(node.fontSize) === "number"){
+    node.fontSize -= 1
   }
 }
 
