@@ -1,5 +1,8 @@
 //This plugin resizes text to fit in its textbox
 
+// show form
+figma.showUI(__html__);
+
 const nodes: SceneNode[] = figma.currentPage.findAll(node => node.type === "TEXT")
 
 
@@ -56,4 +59,4 @@ function growText(node: TextNode, desiredHeight: number){
   }
 }
 
-figma.closePlugin();
+// figma.closePlugin();

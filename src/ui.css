@@ -1,0 +1,38 @@
+/* body */
+body {
+    width: 400;
+    height: 300;
+  }
+
+hr {
+  margin: 0;
+}
+
+img {
+  width: 40;
+  height: 40;
+  margin-top: 10;
+}
+
+label {
+  font-weight: 400;
+}
+
+.form-check {
+  font-size: x-large;
+  font-weight: 100;
+}
+
+.titleblock {
+  display: flex;
+}
+  
+.form-check {
+  padding-left: 10;
+}
+
+.ids {
+  margin: 10;
+}
+
+#textbox:not(:checked) ~ .ids { display: none }
