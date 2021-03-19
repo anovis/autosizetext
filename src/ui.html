@@ -1,6 +1,6 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
@@ -12,57 +12,40 @@
 <hr />
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="autoresizeoptions" id="full" checked>
-  <label class="form-check-label" for="full">
+  <input class="form-check-input" type="radio" name="autoresizeoptions" id="page" checked />
+  <label class="form-check-label" for="page">
     Full Page
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="autoresizeoptions" id="selection">
+  <input class="form-check-input" type="radio" name="autoresizeoptions" id="selection" />
   <label class="form-check-label" for="selection">
     Selection
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input textbox" type="radio" name="autoresizeoptions" id="text">
+  <input class="form-check-input textbox" type="radio" name="autoresizeoptions" id="text" /> 
   <label class="form-check-label" for="text">
     Textbox Id's
   </label>
+  <input class="form-control ids" type="text" id="ids" placeholder="Textbox Ids" />
 </div>
-<input class="form-control ids" type="text" id="ids" placeholder="Textbox Ids">
-
-<!-- <label class="container">Full Page
-  <input type="radio" checked="checked" id="full" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Selection
-  <input type="radio" id="selection" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Textbox Id's
-  <input type="radio" id="ids" name="radio">
-  <span class="checkmark"></span>
-  <div id="textdiv">
-    Ids: <input type="text" id="idtext" name="Ids"/>
-  </div>
-</label> -->
-
-  
-<button id="resize">Resize</button>
-<button id="cancel">Cancel</button>
 
 
+<div class="buttons">
+  <button class="btn btn-primary btn-lg" id="resize">Resize</button>
+  <button class="btn btn-secondary btn-lg" id="cancel">Cancel</button>
+</div>
 
 <script>
-
 document.getElementById('resize').onclick = () => {
-  const textbox = document.getElementById('count');
-  const count = parseInt(textbox.value, 10);
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+    const resizeType = document.querySelector('input[name="autoresizeoptions"]:checked').id;
+    const textIds = document.getElementById('ids').value;
+    parent.postMessage({ pluginMessage: { type: resizeType, textIds:textIds } }, '*')
 }
-
+    
 document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
 }
 
 </script>

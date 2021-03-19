@@ -1,9 +1,3 @@
-/* body */
-body {
-    width: 400;
-    height: 300;
-  }
-
 hr {
   margin: 0;
 }
@@ -31,8 +25,14 @@ label {
   padding-left: 10;
 }
 
-.ids {
-  margin: 10;
+.buttons {
+  margin-left: 10;
 }
 
-#textbox:not(:checked) ~ .ids { display: none }
+#ids {
+  margin: 10;
+  width: 60%;
+  display: none;
+}
+
+#text:checked ~ #ids { display: block }
