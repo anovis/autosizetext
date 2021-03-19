@@ -1,19 +1,53 @@
 //This plugin resizes text to fit in its textbox
 
-const nodes: SceneNode[] = figma.currentPage.findAll(node => node.type === "TEXT")
+// show form
+figma.showUI(__html__, { width: 400, height: 290 });
+
+figma.ui.onmessage = msg => {
+  if (msg.type === 'page') {
+    const nodes: SceneNode[] = figma.currentPage.findAll(node => node.type === "TEXT")
+    nodes.forEach((node =>{
+      if (node.type === 'TEXT'){
+        loadFont(node.fontName).then(
+            ()=>resizeText(node)
+          )
+      }
+    }))
+  }
+  if (msg.type === 'selection'){
+    const nodes = figma.currentPage.selection
+    nodes.forEach((node =>{
+      if (node.type === 'TEXT'){
+        loadFont(node.fontName).then(
+            ()=>resizeText(node)
+          )
+      }
+    }))
+  }
+  if (msg.type === 'text')
+  {
+    const tIds = msg.textIds.split(',')
+    const nodes: SceneNode[] = figma.currentPage.findAll(node => node.type === "TEXT" && tIds.includes(node.name))
+    nodes.forEach((node =>{
+      if (node.type === 'TEXT'){
+        loadFont(node.fontName).then(
+            ()=>resizeText(node)
+          )
+      }
+    }))
+  }
+
+
+  figma.closePlugin()
+}
+
 
 
 async function loadFont(fontName){
   await figma.loadFontAsync(fontName)
 }
 
-nodes.forEach((node =>{
-  if (node.type === 'TEXT'){
-    loadFont(node.fontName).then(
-        ()=>resizeText(node)
-      )
-  }
-}))
+
 
 function resizeText(node: TextNode){
   const _height = node.height
@@ -55,5 +89,3 @@ function growText(node: TextNode, desiredHeight: number){
     node.fontSize -= 1
   }
 }
-
-figma.closePlugin();

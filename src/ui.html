@@ -1,0 +1,51 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="titleblock">
+  <img src="<%= require('./logo.png').default %>">
+
+  <h2>Auto Resize Text</h2>
+</div>
+<hr />
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="autoresizeoptions" id="page" checked />
+  <label class="form-check-label" for="page">
+    Full Page
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="autoresizeoptions" id="selection" />
+  <label class="form-check-label" for="selection">
+    Selection
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input textbox" type="radio" name="autoresizeoptions" id="text" /> 
+  <label class="form-check-label" for="text">
+    Textbox Names
+  </label>
+  <input class="form-control ids" type="text" id="ids" placeholder="Textbox Names" />
+</div>
+
+
+<div class="buttons">
+  <button class="btn btn-primary btn-lg" id="resize">Resize</button>
+  <button class="btn btn-secondary btn-lg" id="cancel">Cancel</button>
+</div>
+
+<script>
+document.getElementById('resize').onclick = () => {
+    const resizeType = document.querySelector('input[name="autoresizeoptions"]:checked').id;
+    const textIds = document.getElementById('ids').value;
+    parent.postMessage({ pluginMessage: { type: resizeType, textIds:textIds } }, '*')
+}
+    
+document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>
