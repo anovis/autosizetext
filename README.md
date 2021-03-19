@@ -31,6 +31,12 @@ For example
 ![large after](images/big_after.png?raw=true)
 
 
+### This plugin has three different options to select textboxes to resize.
+
+* **Full Page** - Resizes all textboxes on current page
+* **Selection** - Resizes currently selected textboxes
+* **Textbox Names** - comma seperated list of textbox names to resize (ex. `textbox1,textbox2` with resize textboxes that have names `textbox1` and `textbox2`)
+
 
 ## Issues
 

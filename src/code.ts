@@ -29,7 +29,6 @@ figma.ui.onmessage = msg => {
     const tIds = msg.textIds.split(',')
     const nodes: SceneNode[] = figma.currentPage.findAll(node => node.type === "TEXT" && tIds.includes(node.name))
     nodes.forEach((node =>{
-      console.log(node.name)
       if (node.type === 'TEXT'){
         loadFont(node.fontName).then(
             ()=>resizeText(node)
