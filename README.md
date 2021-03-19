@@ -1,5 +1,7 @@
 # Autosize Text – Figma plugin
 
+[![](https://img.shields.io/endpoint?url=https://figma-plugin-badges.vercel.app/api/installs/950454402091975756)](https://www.figma.com/community/plugin/950454402091975756/autosizetext)
+
 This is the home for  ['Autosize Text' Figma Plugin](https://www.figma.com/community/plugin/950454402091975756/autosizetext). The goal of this plugin is to automatically resize text to fit in its textbox.
 
 ## How this plugin works
@@ -45,7 +47,7 @@ Please file any issues, bugs or feature requests as an issue on the [GitHub](htt
 ## Roadmap
 
  &#9744; Run as background process \
- &#9744; Toggle to run on selections
+ &#9745; Select specific textboxes to resize
 
 ## Want to Contribute
 
