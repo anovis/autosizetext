@@ -1,6 +1,6 @@
 {
   "name": "autosize-text",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Your Figma plugin",
   "main": "code.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "@figma/plugin-typings": "^1.19.2",
+    "@figma/plugin-typings": "^1.42.1",
     "css-loader": "^5.1.3",
     "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
     "html-webpack-plugin": "^5.3.1",
