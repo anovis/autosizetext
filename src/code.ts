@@ -37,8 +37,8 @@ figma.ui.onmessage = msg => {
     }))
   }
 
-
-  figma.closePlugin()
+  // Need to load fonts before closing plugin 
+  // figma.closePlugin()
 }
 
 

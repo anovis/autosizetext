@@ -53,6 +53,14 @@ Please file any issues, bugs or feature requests as an issue on the [GitHub](htt
 
 If you would like to contribute to the plugin (e.g. by improving the documentation, solving a bug or adding a cool new feature) submit a [pull request](https://github.com/anovis/autosizetext/pulls).
 
+
+## Running Locally
+
+* `npm install`
+* `npx webpack --mode=development --watch`
+
+Import as a new plugin into Figma
+
 ## Want to Support
 
 <!-- markdownlint-disable MD033 -->
